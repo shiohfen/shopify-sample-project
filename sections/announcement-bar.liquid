@@ -1,18 +1,38 @@
-<div class="flex justify-center bg-blue-200 text-center">
+<div class="!flex !justify-center !bg-blue-200 !text-center">
 
-{% for block in section.blocks %}
-  <a href="{{block.settings.link}}" class="text-black-300 no-underline">{{block.settings.text}}</a>
-{% endfor %}
+{% if section.blocks.size > 1 %}
+  {% assign middle_index = section.blocks.size | divided_by: 2 | floor %}
+  {% for block in section.blocks %}
+    <!-- Show all links on medium screens and up -->
+     <div class="!hidden !md:block">
+        <a href="{{ block.settings.link }}" class="!text-black-300 !no-underline ">
+          {{ block.settings.text }}
+        </a>
+        {% if forloop.last == false %}
+          <span class="mx-2">|</span>
+        {% endif %}
+     </div>
+    <!-- Show only the middle link on small screens (mobile) -->
+    {% if forloop.index0 == middle_index %}
+      <a href="{{ block.settings.link }}" class="!text-black-300 !no-underline !block !md:hidden">
+        {{ block.settings.text }}
+      </a>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <!-- Handle cases where there is only one block -->
+  {% if section.blocks.size == 1 %}
+    <a href="{{ section.blocks[0].settings.link }}" class="text-black-300 no-underline">
+      {{ section.blocks[0].settings.text }}
+    </a>
+  {% endif %}
+{% endif %}
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.announcement-bar.name",
+  "name": "Announcement Bar",
   "max_blocks": 3,
-  "class": "announcement-bar-section",
-  "enabled_on": {
-    "groups": ["header"]
-  },
   "settings": [
     {
       "type": "checkbox",
@@ -35,14 +55,14 @@
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+          "label": "URL/Link"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.announcement-bar.presets.name",
+      "name": "Announcement Bar",
       "blocks": [
         {
           "type": "announcement"

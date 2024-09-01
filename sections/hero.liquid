@@ -1,38 +1,96 @@
+<div class="!mx-10 md:!mx-32">
+  <div class="md:!w-1/2 !w-full">
+    <h1 class="!text-center md:!text-left !font-bold !my-8 md:!text-6xl !text-5xl !leading-loose !tracking-wider" >{{ section.settings.headline }}</h1>
+  </div>
+
+  <div class="!flex !flex-col-reverse md:!flex-row gap-5 md:!justify-around">
+    <div>
+      <div class="!m-8">
+        <div class="!text-gray-400">
+          <h2 class="!my-10 !text-2xl !tracking-widest">{{ section.settings.subheadline1 }}</h2>
+          <h2 class="!my-10 !text-2xl !tracking-widest">{{ section.settings.subheadline2 }}</h2>
+          <h2 class="!my-10 !text-2xl !tracking-widest">{{ section.settings.subheadline3 }}</h2>
+        </div>
+      </div>
+
+      <button class="!p-10 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
+    </div>
+
+    <div class="!flex !mx-8 !justify-center !gap-1 !my-12 !h-[30rem]">
+      <div class="!flex !items-center !h-full">
+        <img
+          class="!object-cover !w-auto !h-3/4"
+          src="{{ section.settings.image1 | img_url: 'master' }}"
+          alt=" Image 1">
+      </div>
+      <img
+        class="!object-contain !w-3/5 !h-auto"
+        src="{{ section.settings.image2 | img_url: 'master' }}"
+        alt=" Image 2">
+      <div class="!flex !items-center !h-full">
+        <img
+          class="!object-cover !w-auto !h-3/4"
+          src="{{ section.settings.image3 |  img_url: 'master' }}"
+          alt=" Image 3">
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
 {% schema %}
-    {
-      "name": "Hero Section",
-      "max_blocks": 3,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_line_separator",
-          "default": true,
-          "label": "t:sections.header.settings.show_line_separator.label"
-        }
-      ],
-      "blocks": [
-        {
-          "type": "announcement",
-          "name": "t:sections.announcement-bar.blocks.announcement.name",
-          "settings": [
-            {
-              "type": "text",
-              "id": "text",
-              "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
-            },
-            {
-              "type": "url",
-              "id": "link",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
-            }
-          ]
-        }
-      ],
-      "presets": [
-        {
-          "name": "Hero"
-        }
-      ]
-    }
-    {% endschema %}
+  {
+    "name": "Hero Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "headline",
+        "default": "Don't apologize for being comfortable",
+        "label": "Headline"
+      },
+      {
+        "type": "text",
+        "id": "subheadline1",
+        "default": "Beautiful, comfortable loungewear for day or night",
+        "label": "Subheadline 3"
+      },
+      {
+        "type": "text",
+        "id": "subheadline2",
+        "default": "No wasteful extras, like tags or plastic packaging",
+        "label": "Subheadline 2"
+      },
+      {
+        "type": "text",
+        "id": "subheadline3",
+        "default": "Our signature fabric is incredible comfortable - unlike anything you've ever felt.",
+        "label": "Subheadline 3"
+      }, {
+        "type": "text",
+        "id": "btn-text",
+        "default": "Customize Your Outfit",
+        "label": "Button Text"
+      }, {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image 1"
+      }, {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image 2"
+      }, {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Image 3"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "Hero"
+      }
+    ]
+  }
+{% endschema %}
