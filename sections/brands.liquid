@@ -1,0 +1,33 @@
+<div class="!mx-10 md:!mx-32">
+    <div class="md:!w-1/2 !w-full">
+    <h1 class="!text-center md:!text-left !font-bold !my-8 md:!text-6xl !text-5xl !leading-loose !tracking-wider" >{{ section.settings.headline }}</h1>
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Brands Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "headline",
+        "default": "Loungewear you can be proud of.",
+        "label": "Headline"
+      },
+      {
+        "type": "text",
+        "id": "brand1",
+        "default": "Don't apologize for being comfortable",
+        "label": "Brand 1"
+      }
+
+
+    ],
+    "presets": [
+      {
+        "name": "Brands"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,32 +1,347 @@
+<div class="!mx-10 md:!mx-32">
+  <div class="md:!w-3/4 !w-full">
+    <h1 class="!text-center md:!text-left !font-bold !my-8 md:!text-6xl !text-5xl !leading-loose !tracking-wider">{{ section.settings.headline }}</h1>
+  </div>
+
+  <div class="!flex !flex-col-reverse md:!flex-row gap-5 md:!justify-around">
+    {% comment %} top benefits {% endcomment %}
+    <div class="md:!w-3/4">
+      <div class="!flex !flex-col md:!flex-row !justify-between !gap-4 !my-6 !border-b md:!border-b-0">
+        <div class="!flex !justify-center">
+          <div class="!w-16 !h-16 !rounded-full !overflow-hidden !border">
+            <img
+              class="!object-cover !w-full !h-full"
+             src="{{ section.settings.icon1 | img_url: 'master' }}"
+              alt="icon">
+          </div>
+        </div>
+        <div class="!text-center md:!text-left">
+          <h2 class="!text-2xl md:!text-4xl !font-bold !my-2">{{ section.settings.title1 }}</h2>
+          <p class="!my-4 !text-2xl">{{ section.settings.subtitle1 }}</p>
+        </div>
+      </div>
+      <div class="!flex !flex-col md:!flex-row !justify-between !gap-4 !my-6 !border-b md:!border-b-0">
+        <div class="!flex !justify-center">
+
+        <div class="!w-16 !h-16 !rounded-full !overflow-hidden !border">
+          <img
+            class="!object-cover !w-full !h-full"
+           src="{{ section.settings.icon2 | img_url: 'master' }}"
+            alt="icon">
+        </div>
+        </div>
+        <div class="!text-center md:!text-left">
+          <h2 class="!text-2xl md:!text-4xl !font-bold !my-2">{{ section.settings.title2 }}</h2>
+          <p class="!my-4 !text-2xl">{{ section.settings.subtitle2 }}</p>
+        </div>
+      </div>
+      <div class="!flex !flex-col md:!flex-row !justify-between !gap-4 !my-6 !border-b md:!border-b-0">
+        <div class="!flex !justify-center">
+          <div class="!w-16 !h-16 !rounded-full !overflow-hidden !border">
+            <img
+              class="!object-cover !w-full !h-full"
+             src="{{ section.settings.icon3 | img_url: 'master' }}"
+              alt="icon">
+          </div>
+        </div>
+        <div class="!text-center md:!text-left">
+          <h2 class="!text-2xl md:!text-4xl !font-bold !my-2">{{ section.settings.title3 }}</h2>
+          <p class="!my-4 !text-2xl">{{ section.settings.subtitle3 }}</p>
+        </div>
+      </div>
+      <div class="!flex !flex-col md:!flex-row !justify-between !gap-4 !my-6 !border-b md:!border-b-0">
+        <div class="!flex !justify-center">
+          <div class="!w-16 !h-16 !rounded-full !overflow-hidden !border">
+            <img
+              class="!object-cover !w-full !h-full"
+             src="{{ section.settings.icon4 | img_url: 'master' }}"
+              alt="icon">
+          </div>
+        </div>
+        <div class="!text-center md:!text-left">
+          <h2 class="!text-2xl md:!text-4xl !font-bold !my-2">{{ section.settings.title4 }}</h2>
+          <p class="!my-4 !text-2xl">{{ section.settings.subtitle4 }}</p>
+        </div>
+      </div>
+
+    </div>
+    {% comment %} image carousel {% endcomment %}
+    <div class="carousel md:!w-1/2 !flex !justify-center !items-center md:!mx-20 md:!h-auto">
+      <div class="carousel-inner">
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-1"
+          name="carousel"
+          aria-hidden="true"
+          hidden=""
+          checked="checked">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image1 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-2"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image2 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-3"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image3 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-4"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image4 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-5"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image5 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-6"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image6 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-7"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image7 | img_url: 'master' }}">
+        </div>
+        <input
+          class="carousel-open"
+          type="radio"
+          id="carousel-8"
+          name="carousel"
+          aria-hidden="true"
+          hidden="">
+        <div class="carousel-item">
+          <img class="!object-contain !w-full !h-full" src="{{ section.settings.image8 | img_url: 'master' }}">
+        </div>
+
+        {% comment %} next and previous buttons for the images {% endcomment %}
+        <label for="carousel-8" class="carousel-control prev control-1 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-2" class="carousel-control next control-1 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-1" class="carousel-control prev control-2 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-3" class="carousel-control next control-2 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-2" class="carousel-control prev control-3 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-4" class="carousel-control next control-3 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-3" class="carousel-control prev control-4 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-5" class="carousel-control next control-4 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-4" class="carousel-control prev control-5 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-6" class="carousel-control next control-5 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-5" class="carousel-control prev control-6 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-7" class="carousel-control next control-6 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-6" class="carousel-control prev control-7 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-8" class="carousel-control next control-7 !bg-slate-300 !text-black">›</label>
+        <label for="carousel-7" class="carousel-control prev control-8 !bg-slate-300 !text-black">‹</label>
+        <label for="carousel-1" class="carousel-control next control-8 !bg-slate-300 !text-black">›</label>
+
+        {% comment %} thumbnails of the images {% endcomment %}
+        <ol class="carousel-indicators !flex !justify-around">
+          <li>
+            <label for="carousel-1" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image1 | img_url: 'master' }}" alt="Carousel Image 1">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-2" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image2 | img_url: 'master' }}" alt="Carousel Image 2">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-3" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image3 | img_url: 'master' }}" alt="Carousel Image 3">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-4" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image4 | img_url: 'master' }}" alt="Carousel Image 4">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-5" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image5 | img_url: 'master' }}" alt="Carousel Image 5">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-6" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image6 | img_url: 'master' }}" alt="Carousel Image 6">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-7" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image7 | img_url: 'master' }}" alt="Carousel Image 7">  
+              </div>
+              
+            </label>
+          </li>
+          <li>
+            <label for="carousel-8" class="carousel-bullet">
+              <div class="!w-16 !h-16">
+                <img class="!object-cover !w-full !h-full" src="{{ section.settings.image8 | img_url: 'master' }}" alt="Carousel Image 8">  
+              </div>
+              
+            </label>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 {% schema %}
   {
     "name": "Top benefits Section",
-    "max_blocks": 3,
     "settings": [
       {
-        "type": "checkbox",
-        "id": "show_line_separator",
-        "default": true,
-        "label": "t:sections.header.settings.show_line_separator.label"
-      }
-    ],
-    "blocks": [
+        "type": "text",
+        "id": "headline",
+        "default": "Loungewear you can be proud of.",
+        "label": "Headline"
+      },
       {
-        "type": "announcement",
-        "name": "t:sections.announcement-bar.blocks.announcement.name",
-        "settings": [
-          {
-            "type": "text",
-            "id": "text",
-            "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
-            "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
-          },
-          {
-            "type": "url",
-            "id": "link",
-            "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
-          }
-        ]
+        "type": "text",
+        "id": "title1",
+        "default": "Ethically Sourced.",
+        "label": "Title 1"
+      },
+      {
+        "type": "text",
+        "id": "title2",
+        "default": "Responsibly Made",
+        "label": "Title 2"
+      },
+      {
+        "type": "text",
+        "id": "title3",
+        "default": "Made for living in.",
+        "label": "Title 3"
+      }, {
+        "type": "text",
+        "id": "title4",
+        "default": "Unimaginable comfortable",
+        "label": "Title 4"
+      }, {
+        "type": "text",
+        "id": "subtitle1",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
+        "label": "subtitle 1"
+      }, {
+        "type": "text",
+        "id": "subtitle2",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
+        "label": "subtitle 2"
+      }, {
+        "type": "text",
+        "id": "subtitle3",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
+        "label": "subtitle 3"
+      }, {
+        "type": "text",
+        "id": "subtitle4",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
+        "label": "subtitle 4"
+      }, {
+        "type": "image_picker",
+        "id": "icon1",
+        "label": "Icon 1"
+      }, {
+        "type": "image_picker",
+        "id": "icon2",
+        "label": "Icon 2"
+      }, {
+        "type": "image_picker",
+        "id": "icon3",
+        "label": "Icon 3"
+      }, {
+        "type": "image_picker",
+        "id": "icon4",
+        "label": "Icon 4"
+      }, {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image 1"
+      }, {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image 2"
+      }, {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Image 3"
+      }, {
+        "type": "image_picker",
+        "id": "image4",
+        "label": "Image 4"
+      }, {
+        "type": "image_picker",
+        "id": "image5",
+        "label": "Image 5"
+      }, {
+        "type": "image_picker",
+        "id": "image6",
+        "label": "Image 6"
+      }, {
+        "type": "image_picker",
+        "id": "image7",
+        "label": "Image 7"
+      }, {
+        "type": "image_picker",
+        "id": "image8",
+        "label": "Image 8"
       }
     ],
     "presets": [
@@ -35,4 +350,120 @@
       }
     ]
   }
-  {% endschema %}
+{% endschema %}
+
+
+{% stylesheet %}
+  .carousel {
+    position: relative;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.64);
+    margin-top: 26px;
+    overflow: hidden;
+  }
+
+  .carousel-inner {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+  }
+
+  .carousel-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+  }
+
+  .carousel-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .carousel-control {
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+  }
+
+  .carousel-control.prev {
+    left: 2%;
+  }
+
+  .carousel-control.next {
+    right: 2%;
+  }
+
+  .carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+  }
+
+  #carousel-1:checked ~ .control-1,
+  #carousel-2:checked ~ .control-2,
+  #carousel-3:checked ~ .control-3,
+  #carousel-4:checked ~ .control-4,
+  #carousel-5:checked ~ .control-5,
+  #carousel-6:checked ~ .control-6,
+  #carousel-7:checked ~ .control-7,
+  #carousel-8:checked ~ .control-8 {
+    display: block;
+  }
+
+  .carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .carousel-indicators li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  .carousel-bullet {
+    /* color: #fff; */
+    cursor: pointer;
+    display: block;
+    /* font-size: 35px; */
+  }
+
+  .carousel-bullet:hover {
+    color: #aaaaaa;
+  }
+
+  #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+  #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+  #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet,
+  #carousel-4:checked ~ .control-4 ~ .carousel-indicators li:nth-child(4) .carousel-bullet,
+  #carousel-5:checked ~ .control-5 ~ .carousel-indicators li:nth-child(5) .carousel-bullet,
+  #carousel-6:checked ~ .control-6 ~ .carousel-indicators li:nth-child(6) .carousel-bullet,
+  #carousel-7:checked ~ .control-7 ~ .carousel-indicators li:nth-child(7) .carousel-bullet,
+  #carousel-8:checked ~ .control-8 ~ .carousel-indicators li:nth-child(8) .carousel-bullet {
+    color: #428bca;
+  }
+
+
+{% endstylesheet %}
