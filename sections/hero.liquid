@@ -13,25 +13,27 @@
         </div>
       </div>
 
-      <button class="!p-10 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
+      <button class="!px-10 !py-6 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
     </div>
 
-    <div class="!flex !mx-8 !justify-center !gap-1 !my-12 !h-[30rem]">
-      <div class="!flex !items-center !h-full">
+    <div class="!flex !mx-8 !items-center !justify-center !gap-1 !h-[30rem] ">
+      <div class="!h-80 !w-56">
         <img
-          class="!object-cover !w-auto !h-3/4"
+          class="!h-full !w-full !object-cover"
           src="{{ section.settings.image1 | img_url: 'master' }}"
-          alt=" Image 1">
+          alt="Image 1" />
       </div>
-      <img
-        class="!object-contain !w-3/5 !h-auto"
-        src="{{ section.settings.image2 | img_url: 'master' }}"
-        alt=" Image 2">
-      <div class="!flex !items-center !h-full">
+      <div class="!h-96 !w-56">
         <img
-          class="!object-cover !w-auto !h-3/4"
-          src="{{ section.settings.image3 |  img_url: 'master' }}"
-          alt=" Image 3">
+          class="!h-full !w-full !object-cover"
+          src="{{ section.settings.image2 | img_url: 'master' }}"
+          alt="Image 2" />
+      </div>
+      <div class="!h-80 !w-56">
+        <img
+          class="!h-full !w-full !object-cover"
+          src="{{ section.settings.image3 | img_url: 'master' }}"
+          alt="Image 3" />
       </div>
     </div>
 
