@@ -1,38 +1,222 @@
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<div class="!mx-10 md:!mx-44 !flex !justify-center !flex-col">
+  <h1 class="!py-20 !text-center md:!text-5xl !text-4xl !font-bold">Comfort made easy</h1>
+
+  <div class="w-full relative">
+    <div class="swiper multiple-slide-carousel1 swiper-container !relative">
+      <div class="swiper-wrapper !mb-16">
+        {% for i in (1..3) %}
+
+          {% liquid
+            assign title_var = "title" | append: i
+            assign subtitle_var = "subtitle" | append: i
+            assign icon_var = "icon" | append: i
+          %}
+          <div class="swiper-slide">
+            <div class="!rounded-2xl !h-96 !flex !justify-center !items-center">
+
+              {% if i == 2 %}
+                <div class="!flex !h-full !w-full !flex-col !justify-center !gap-4 !bg-orange-50 !rounded-lg">
+                  <div class="!flex !justify-center">
+                    <div class="!h-20 !w-20">
+                      <img
+                        class="!h-full !w-full !object-cover"
+                        src="{{ section.settings[icon_var] }}"
+                        alt="Icon {{ i }}" />
+                    </div>
+                  </div>
+                  <div class="!px-20">
+                    <h2 class="!text-center !font-bold !text-3xl !py-4">{{ section.settings[title_var] }}</h2>
+                    <p class="!text-center">{{ section.settings[subtitle_var] }}</p>
+                  </div>
+                </div>
+              {% else %}
+                <div class="!flex !h-full !w-full !flex-col !justify-center !gap-4 !bg-slate-200 !rounded-lg">
+                  <div class="!flex !justify-center">
+                    <div class="!h-20 !w-20">
+                      <img
+                        class="!h-full !w-full !object-cover"
+                        src="{{ section.settings[icon_var] }}"
+                        alt="" />
+                    </div>
+                  </div>
+                  <div class="!px-20">
+                    <h2 class="!text-center !font-bold !text-3xl !py-4">{{ section.settings[title_var] }}</h2>
+                    <p class="!text-center">{{ section.settings[subtitle_var] }}</p>
+                  </div>
+                </div>
+              {% endif %}
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="!flex !items-center !gap-8 lg:!justify-start !justify-center md:!hidden">
+        <button
+          id="slider-button-left"
+          class="swiper-button-prev group !p-2 !flex !justify-center !items-center !top-1/2 !-translate-y-1/2 !left-5 "
+          data-carousel-prev>
+          <svg
+            class="!h-5 !w-5 !text-indigo-600 group-hover:!text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none">
+            <path
+              d="M10.0002 11.9999L6 7.99971L10.0025 3.99719"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button
+          id="slider-button-right"
+          class="swiper-button-next group !p-2 !flex !justify-center !items-center !top-1/2 !-translate-y-1/2 !right-5"
+          data-carousel-next>
+          <svg
+            class="!h-5 !w-5 !text-indigo-600 group-hover:!text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none">
+            <path
+              d="M5.99984 4.00012L10 8.00029L5.99748 12.0028"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+    <div class="!flex !justify-center">
+      <div class="!w-full md:!w-1/3">
+        <button class="!px-10 !py-7 md:!p-5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
+        <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
+      </div>
+    </div>
+
+</div>
+
+
+{% stylesheet %}
+  .swiper-carousel-wrapper {
+    width: 100%;
+    height: max-content !important;
+    padding-bottom: 8rem !important;
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+    position: relative;
+  }
+{% endstylesheet %}
+
 {% schema %}
-    {
-      "name": "How product works Section",
-      "max_blocks": 3,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_line_separator",
-          "default": true,
-          "label": "t:sections.header.settings.show_line_separator.label"
-        }
-      ],
-      "blocks": [
-        {
-          "type": "announcement",
-          "name": "t:sections.announcement-bar.blocks.announcement.name",
-          "settings": [
-            {
-              "type": "text",
-              "id": "text",
-              "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
-            },
-            {
-              "type": "url",
-              "id": "link",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
-            }
-          ]
-        }
-      ],
-      "presets": [
-        {
-          "name": "How product works Section"
-        }
-      ]
+  {
+    "name": "How product works Section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title1",
+        "default": "You save.",
+        "label": "Title 1"
+      },
+      {
+        "type": "text",
+        "id": "title2",
+        "default": "We ship.",
+        "label": "Title 2"
+      },
+      {
+        "type": "text",
+        "id": "title3",
+        "default": "You enjoy!",
+        "label": "Title 3"
+      },
+      {
+        "type": "text",
+        "id": "subtitle1",
+        "default": "Browse our comfort sets and save 15% when you bundle.",
+        "label": "Subtitle 1"
+      }, {
+        "type": "text",
+        "id": "subtitle2",
+        "default": "We ship your items within 1-2 days of receiving your order.",
+        "label": "Subtitle 2"
+      }, {
+        "type": "text",
+        "id": "subtitle3",
+        "default": "Wear hernest around the house, out on the town, or in bed.",
+        "label": "Subtitle 3"
+      }, {
+        "type": "image_picker",
+        "id": "icon1",
+        "label": "Icon 1"
+      }, {
+        "type": "image_picker",
+        "id": "icon2",
+        "label": "Icon 2"
+      }, {
+        "type": "image_picker",
+        "id": "icon3",
+        "label": "Icon 3"
+      }, {
+        "type": "text",
+        "id": "btn-text",
+        "default": "Customize Your Outfit",
+        "label": "Button Text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "How product works Section"
+      }
+    ]
+  }
+{% endschema %}
+
+{% javascript %}
+  var swiper3 = new Swiper(".multiple-slide-carousel1", {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".multiple-slide-carousel1 .swiper-button-next",
+      prevEl: ".multiple-slide-carousel1 .swiper-button-prev"
+    },
+    breakpoints: {
+      1536: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      }
     }
-    {% endschema %}
+  });
+{% endjavascript %}
