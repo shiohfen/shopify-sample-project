@@ -1067,6 +1067,10 @@ input[type="range"]::-ms-fill-lower {
   z-index: 40;
 }
 
+.\!-z-20 {
+  z-index: -20 !important;
+}
+
 .\!mx-10 {
   margin-left: 2.5rem !important;
   margin-right: 2.5rem !important;
@@ -1112,11 +1116,6 @@ input[type="range"]::-ms-fill-lower {
   margin-right: 0.5rem;
 }
 
-.\!my-20 {
-  margin-top: 5rem !important;
-  margin-bottom: 5rem !important;
-}
-
 .\!mb-12 {
   margin-bottom: 3rem !important;
 }
@@ -1135,6 +1134,10 @@ input[type="range"]::-ms-fill-lower {
 
 .\!mb-28 {
   margin-bottom: 7rem !important;
+}
+
+.\!mb-40 {
+  margin-bottom: 10rem !important;
 }
 
 .\!mb-8 {
@@ -1163,10 +1166,6 @@ input[type="range"]::-ms-fill-lower {
 
 .mr-2 {
   margin-right: 0.5rem;
-}
-
-.\!mb-40 {
-  margin-bottom: 10rem !important;
 }
 
 .\!block {
@@ -1213,11 +1212,6 @@ input[type="range"]::-ms-fill-lower {
 .size-6 {
   width: 1.5rem;
   height: 1.5rem;
-}
-
-.size-2 {
-  width: 0.5rem;
-  height: 0.5rem;
 }
 
 .\!h-12 {
@@ -1396,6 +1390,18 @@ input[type="range"]::-ms-fill-lower {
   width: 100%;
 }
 
+.\!w-\[50rem\] {
+  width: 50rem !important;
+}
+
+.\!w-\[48rem\] {
+  width: 48rem !important;
+}
+
+.\!w-\[28rem\] {
+  width: 28rem !important;
+}
+
 .\!max-w-sm {
   max-width: 24rem !important;
 }
@@ -1565,6 +1571,10 @@ input[type="range"]::-ms-fill-lower {
   border-radius: 0.5rem !important;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .rounded-2xl {
   border-radius: 1rem;
 }
@@ -1575,10 +1585,6 @@ input[type="range"]::-ms-fill-lower {
 
 .rounded-lg {
   border-radius: 0.5rem;
-}
-
-.rounded {
-  border-radius: 0.25rem;
 }
 
 .rounded-e-lg {
@@ -1686,11 +1692,6 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(255 255 255 / 0.3);
 }
 
-.\!bg-red-200 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(251 213 213 / var(--tw-bg-opacity)) !important;
-}
-
 .\!bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops)) !important;
 }
@@ -1776,6 +1777,16 @@ input[type="range"]::-ms-fill-lower {
   padding-bottom: 2.5rem !important;
 }
 
+.\!py-12 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.\!py-16 {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
 .\!py-20 {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
@@ -1806,29 +1817,9 @@ input[type="range"]::-ms-fill-lower {
   padding-right: 1rem;
 }
 
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.\!py-16 {
-  padding-top: 4rem !important;
-  padding-bottom: 4rem !important;
-}
-
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.\!py-12 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
 }
 
 .\!pb-24 {
@@ -1843,16 +1834,8 @@ input[type="range"]::-ms-fill-lower {
   padding-top: 16rem !important;
 }
 
-.\!pb-20 {
-  padding-bottom: 5rem !important;
-}
-
 .\!text-center {
   text-align: center !important;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .\!text-2xl {
@@ -2175,10 +2158,6 @@ input[type="range"]::-ms-fill-lower {
 
   .md\:\!py-48 {
     padding-top: 12rem !important;
-    padding-bottom: 12rem !important;
-  }
-
-  .md\:\!pb-48 {
     padding-bottom: 12rem !important;
   }
 

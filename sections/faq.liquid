@@ -80,10 +80,10 @@
     <div class="!hidden md:!block">
       <div class="!flex !mx-8 !items-center !justify-center md:!w-1/2 !gap-2">
         <!-- Container for multiple overlapping images -->
-        <div class="!h-[30rem] !w-[22rem] !relative">
+        <div class="!h-[30rem] !w-[40rem] !relative">
           <!-- Main image -->
           <img
-            src="{{ section.settings.image1 |image_url: width: 352 }}"
+            src="{{ section.settings.image1 |image_url: width: 640 }}"
             alt="Image 1"
             class="!h-full !w-full !object-cover !z-10">
           <!-- Overlapping images with absolute positioning -->
@@ -100,10 +100,10 @@
               class="!h-full !w-full !object-cover">
           </div>
           <!-- Gradient overlays for visual effect -->
-          <div class="!h-[18rem] !w-[13rem] !absolute !-bottom-16 !-right-24 !-z-10 !bg-gradient-to-b !to-orange-50 !from-white">
+          <div class="!h-[18rem] !w-[13rem] !absolute !-bottom-16 !-right-24 !-z-20 !bg-gradient-to-b !to-orange-50 !from-white">
             <span></span>
           </div>
-          <div class="!h-[18rem] !w-[13rem] !absolute !-left-20 !-top-32 !-z-10 !bg-gradient-to-b !to-orange-50 !from-white">
+          <div class="!h-[18rem] !w-[13rem] !absolute !-left-20 !-top-32 !-z-20 !bg-gradient-to-b !to-orange-50 !from-white">
             <span></span>
           </div>
         </div>

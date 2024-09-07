@@ -7,171 +7,173 @@
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 
 <!-- Main container with gradient background and padding -->
-<div class="!mx-10 md:!mx-44 md:!py-36 !pt-64 !pb-24 !bg-gradient-to-b !from-orange-50 !to-slate-50">
+<div class="!bg-gradient-to-b !from-orange-50 !to-slate-50">
 
-  <!-- Section for displaying brand logos or similar images in a carousel -->
-  <div>
-    <!-- Title for the section -->
-    <h2 class="!font-bold !text-gray-400 md:!text-4xl !text-center !mb-8 !mt-8">as seen in</h2>
+  <div class="!mx-10 md:!mx-44 md:!py-36 !pt-64 !pb-24">
 
-    <!-- Container for Swiper carousel -->
-    <div class="!w-full !relative">
-      <div class="swiper multiple-slide-carousel swiper-container !relative">
-        <div class="swiper-wrapper !mb-8">
-          <!-- Loop through 5 items to create slides in the carousel -->
-          {% for i in (1..5) %}
-            {% assign img_var = 'image' | append: i %}
-            <div class="swiper-slide">
-              <div class="!rounded-2xl !h-56 !w-auto !flex !justify-center !items-center">
-                <!-- Display each image in the carousel -->
+    <!-- Section for displaying brand logos or similar images in a carousel -->
+    <div>
+      <!-- Title for the section -->
+      <h2 class="!font-bold !text-gray-400 md:!text-4xl !text-center !mb-8 !mt-8">as seen in</h2>
+
+      <!-- Container for Swiper carousel -->
+      <div class="!w-full !relative">
+        <div class="swiper multiple-slide-carousel swiper-container !relative">
+          <div class="swiper-wrapper !mb-8">
+            <!-- Loop through 5 items to create slides in the carousel -->
+            {% for i in (1..5) %}
+              {% assign brand_var = 'brand' | append: i %}
+              <div class="swiper-slide">
+                <div class="!rounded-2xl !h-56 !w-auto !flex !justify-center !items-center">
+                    <!-- Display each image in the carousel -->
+                  <img
+                    class="!w-full !h-full !object-cover"
+                    src="{{ section.settings[brand_var] |  image_url: height: 224 }}"
+                    alt="Brand {{ i }}">
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <!-- Pagination controls (dots) for the Swiper carousel -->
+          <div class="swiper-pagination !block md:!hidden"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section for displaying a headline -->
+    <div>
+      <h1 class="!text-center md:!text-left !font-bold !my-8 md:!text-5xl !text-4xl !leading-loose !tracking-wider">
+        {{ section.settings.headline }}
+      </h1>
+    </div>
+
+    <!-- Section for displaying feature details -->
+    <div class="!flex !flex-col-reverse md:!flex-row gap-5 md:!justify-between">
+      <!-- Container for feature items with optional dividers -->
+      <div class="md:!w-1/2 divide-y ">
+        <!-- Loop through 4 items for feature details -->
+        {% for i in (1..4) %}
+          {% liquid
+            assign icon_var = 'icon' | append: i
+            assign title_var = 'title' | append: i
+            assign subtitle_var = 'subtitle' | append: i
+          %}
+          <div class="!flex !flex-col md:!flex-row !justify-between !gap-4 !my-6 ">
+            <div class="!flex !justify-center">
+              <!-- Display feature icon -->
+              <div class="!w-16 !h-16 !rounded-full !overflow-hidden !border !mt-12 md:!mt-0">
                 <img
-                  class="!w-full !h-full !object-cover"
-                  src="{{ section.settings[img_var] |  image_url: height: 224 }}"
-                  alt="Brand {{ i }}">
+                  class="!object-cover !w-full !h-full"
+                  src="{{ section.settings[icon_var] | image_url: width: 64 }}"
+                  alt="icon">
+              </div>
+            </div>
+            <div class="!text-center md:!text-left !px-28 md:!px-0">
+              <!-- Display feature title and subtitle -->
+              <h2 class="!text-2xl md:!text-4xl !font-bold !my-2">{{ section.settings[title_var] }}</h2>
+              <p class="!my-4 !text-2xl">{{ section.settings[subtitle_var] }}</p>
+            </div>
+
+            <!-- Special section for the last item -->
+            {% if i == 4 %}
+              <div class="!block md:!hidden">
+                <!-- Button and review for the last feature item -->
+                <button class="!px-10 !py-7 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">
+                  {{ section.settings.btn-text }}
+                </button>
+                <div>
+                  <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Carousel for displaying a series of images -->
+      <div
+        id="default-carousel"
+        class="relative md:!w-1/2 "
+        data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-full overflow-hidden rounded-lg">
+          <!-- Loop through 8 items to create carousel slides -->
+          {% for i in (1..8) %}
+            {% assign image_var = "image" | append: i %}
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <div class="h-full-w-full">
+                  <!-- Display each image in the carousel -->
+                <img
+                  src="{{ section.settings[image_var] | image_url: width: 709 }}"
+                  class="h-full w-full object-cover"
+                  alt="Image {{ i }}">
               </div>
             </div>
           {% endfor %}
         </div>
-        <!-- Pagination controls (dots) for the Swiper carousel -->
-        <div class="swiper-pagination !block md:!hidden"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section for displaying a headline -->
-  <div>
-    <h1 class="!text-center md:!text-left !font-bold !my-8 md:!text-5xl !text-4xl !leading-loose !tracking-wider">
-      {{ section.settings.headline }}
-    </h1>
-  </div>
-
-  <!-- Section for displaying feature details -->
-  <div class="!flex !flex-col-reverse md:!flex-row gap-5 md:!justify-between">
-    <!-- Container for feature items with optional dividers -->
-    <div class="md:!w-1/2 divide-y ">
-      <!-- Loop through 4 items for feature details -->
-      {% for i in (1..4) %}
-        {% liquid
-          assign icon_var = 'icon' | append: i
-          assign title_var = 'title' | append: i
-          assign subtitle_var = 'subtitle' | append: i
-        %}
-        <div class="!flex !flex-col md:!flex-row !justify-between !gap-4 !my-6 ">
-          <div class="!flex !justify-center">
-            <!-- Display feature icon -->
-            <div class="!w-16 !h-16 !rounded-full !overflow-hidden !border !mt-12 md:!mt-0">
+        <!-- Slider indicators (thumbnails) for the carousel -->
+        <div class="!absolute !z-30 !flex !justify-center !-translate-x-1/2 !bottom-5 !left-1/2 !space-x-3 !rtl:space-x-reverse">
+          {% for i in (1..8) %}
+            {% assign image_var = "image" | append: i %}
+            <button
+              type="button"
+              class="!w-16 !h-24"
+              aria-current="true"
+              aria-label="Slide {{ i }}"
+              data-carousel-slide-to="{{ i | minus: 1 }}">
               <img
-                class="!object-cover !w-full !h-full"
-                src="{{ section.settings[icon_var] | image_url: width: 64 }}"
-                alt="icon">
-            </div>
-          </div>
-          <div class="!text-center md:!text-left !px-28 md:!px-0">
-            <!-- Display feature title and subtitle -->
-            <h2 class="!text-2xl md:!text-4xl !font-bold !my-2">{{ section.settings[title_var] }}</h2>
-            <p class="!my-4 !text-2xl">{{ section.settings[subtitle_var] }}</p>
-          </div>
-
-          <!-- Special section for the last item -->
-          {% if i == 4 %}
-            <div class="!block md:!hidden">
-              <!-- Button and review for the last feature item -->
-              <button class="!px-10 !py-7 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">
-                {{ section.settings.btn-text }}
-              </button>
-              <div>
-                <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
-              </div>
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-
-    <!-- Carousel for displaying a series of images -->
-    <div
-      id="default-carousel"
-      class="relative md:!w-1/2 "
-      data-carousel="slide">
-      <!-- Carousel wrapper -->
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <!-- Loop through 8 items to create carousel slides -->
-        {% for i in (1..8) %}
-          {% assign image_var = "image" | append: i %}
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <div class="h-full-w-full">
-              <!-- Display each image in the carousel -->
-              <img
-                src="{{ section.settings[image_var] | image_url: height: 384 }}"
+                src="{{ section.settings[image_var] | image_url: height: 224 }}"
                 class="h-full w-full object-cover"
                 alt="Image {{ i }}">
-            </div>
-          </div>
-        {% endfor %}
+            </button>
+          {% endfor %}
+        </div>
+        <!-- Slider controls (previous and next buttons) -->
+        <button
+          type="button"
+          class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none text-black"
+          data-carousel-prev>
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg
+              class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10">
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 1 1 5l4 4" />
+            </svg>
+            <span class="sr-only">Previous</span>
+          </span>
+        </button>
+        <button
+          type="button"
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none text-black"
+          data-carousel-next>
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg
+              class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10">
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4" />
+            </svg>
+            <span class="sr-only">Next</span>
+          </span>
+        </button>
       </div>
-      <!-- Slider indicators (thumbnails) for the carousel -->
-      <div class="!absolute !z-30 !flex !justify-center !-translate-x-1/2 !bottom-5 !left-1/2 !space-x-3 !rtl:space-x-reverse">
-        {% for i in (1..8) %}
-          {% assign image_var = "image" | append: i %}
-          <button
-            type="button"
-            class="!w-16 !h-24"
-            aria-current="true"
-            aria-label="Slide {{ i }}"
-            data-carousel-slide-to="{{ i | minus: 1 }}">
-            <img
-              src="{{ section.settings[image_var] | image_url: height: 224 }}"
-              class="h-full w-full object-cover"
-              alt="Image {{ i }}">
-          </button>
-        {% endfor %}
-      </div>
-      <!-- Slider controls (previous and next buttons) -->
-      <button
-        type="button"
-        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none text-black"
-        data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10">
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 1 1 5l4 4" />
-          </svg>
-          <span class="sr-only">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
-        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none text-black"
-        data-carousel-next>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10">
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4" />
-          </svg>
-          <span class="sr-only">Next</span>
-        </span>
-      </button>
     </div>
   </div>
-
 </div>
 
 <!-- Custom stylesheet to style the Swiper carousel -->
@@ -185,7 +187,8 @@
     position: relative;
   }
   .swiper-pagination-bullet {
-    background: #4f46e5; /* Custom color for pagination bullets */
+    background: #4f46e5;
+    /* Custom color for pagination bullets */
   }
 {% endstylesheet %}
 
@@ -217,102 +220,105 @@
         "id": "title2",
         "default": "Responsibly Made",
         "label": "Title 2"
-      },
-      {
+      }, {
         "type": "text",
         "id": "title3",
         "default": "Made for living in.",
         "label": "Title 3"
-      },
-      {
+      }, {
         "type": "text",
         "id": "title4",
         "default": "Unimaginable comfortable",
         "label": "Title 4"
-      },
-      {
+      }, {
         "type": "text",
         "id": "subtitle1",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
         "label": "subtitle 1"
-      },
-      {
+      }, {
         "type": "text",
         "id": "subtitle2",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
         "label": "subtitle 2"
-      },
-      {
+      }, {
         "type": "text",
         "id": "subtitle3",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
         "label": "subtitle 3"
-      },
-      {
+      }, {
         "type": "text",
         "id": "subtitle4",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ab necessitatibus praesentium reiciendis. Culpa cumque molestias vitae excepturi, et quibusdam eos aperiam soluta dolorem nesciunt delectus enim! Amet, aperiam in.",
         "label": "subtitle 4"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "icon1",
         "label": "Icon 1"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "icon2",
         "label": "Icon 2"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "icon3",
         "label": "Icon 3"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "icon4",
         "label": "Icon 4"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image1",
         "label": "Image 1"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image2",
         "label": "Image 2"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image3",
         "label": "Image 3"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image4",
         "label": "Image 4"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image5",
         "label": "Image 5"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image6",
         "label": "Image 6"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image7",
         "label": "Image 7"
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "image8",
         "label": "Image 8"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand1",
+        "label": "Brand 1"
+      }, {
+        "type": "image_picker",
+        "id": "brand2",
+        "label": "Brand 2"
+      }, {
+        "type": "image_picker",
+        "id": "brand3",
+        "label": "Brand 3"
+      }, {
+        "type": "image_picker",
+        "id": "brand4",
+        "label": "Brand 4"
+      }, {
+        "type": "image_picker",
+        "id": "brand5",
+        "label": "Brand 5"
       }
     ],
     "presets": [
