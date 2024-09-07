@@ -1,40 +1,51 @@
-<div class="!mx-10 md:!mx-44 md:!pb-48">
+<!-- Container for the FAQ section with responsive margins and padding -->
+<div class="!mx-10 md:!mx-44 md:!py-48 !py-12">
+
+  <!-- Section for the headline with responsive text alignment and size -->
   <div class="md:!w-1/2 !w-full">
     <h1 class="!text-center md:!text-left !font-bold !my-8 md:!text-6xl !text-5xl !leading-loose !tracking-wider">{{ section.settings.headline }}</h1>
   </div>
 
-  <div class="!flex !flex-col-reverse md:!flex-row gap-5 md:!justify-between ">
+  <!-- Main content area with responsive layout adjustments -->
+  <div class="!flex !flex-col-reverse md:!flex-row gap-5 md:!justify-between">
 
-  <div class="!block md:!hidden">
-    <button class="!px-10 !py-7 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
-    <div>
-      <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
+    <!-- Mobile-only button and review section -->
+    <div class="!block md:!hidden">
+      <button class="!px-10 !py-7 md:!p-5 md:!w-3/5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
+      <div>
+        <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
+      </div>
     </div>
-  </div>
-  
+    
+    <!-- FAQ section -->
     <div class="!mb-20 !px-12 md:!w-1/2">
-
+      <!-- Subheading for FAQs with responsive text alignment and size -->
       <h1 class="!text-center md:!text-left !font-bold !mb-12 md:!text-5xl !text-4xl !leading-loose !tracking-wider">Frequently asked questions.</h1>
 
+      <!-- Accordion for FAQ items -->
       <div
         id="accordion-flush"
         data-accordion="collapse"
         data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
         data-inactive-classes="text-gray-500 dark:text-gray-400">
 
+        <!-- Loop through FAQ items -->
         {% for i in (1..6) %}
           {% liquid
             assign question_var = "question" | append: i
             assign answer_var = "answer" | append: i
           %}
-          <h2 id="accordion-flush-heading-1">
+          <!-- FAQ item header -->
+          <h2 id="accordion-flush-heading-{{ i }}">
             <button
               type="button"
               class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
               data-accordion-target="#accordion-flush-body-{{ i }}"
               aria-expanded="true"
               aria-controls="accordion-flush-body-{{ i }}">
+              <!-- FAQ question text -->
               <span class="!text-2xl !font-bold">{{ section.settings[question_var] }}</span>
+              <!-- Accordion icon -->
               <svg
                 data-accordion-icon
                 class="w-6 h-6 rotate-180 shrink-0"
@@ -49,32 +60,33 @@
                   stroke-width="2"
                   d="M9 5 5 1 1 5" />
               </svg>
-
             </button>
           </h2>
+          <!-- FAQ item body -->
           <div
             id="accordion-flush-body-{{ i }}"
             class="hidden"
-            aria-labelledby="accordion-flush-heading-1">
+            aria-labelledby="accordion-flush-heading-{{ i }}">
             <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+              <!-- FAQ answer text -->
               <p class="mb-2 text-gray-500 dark:text-gray-400">{{ section.settings[answer_var] }}</p>
             </div>
           </div>
         {% endfor %}
-
-
       </div>
-
     </div>
 
+    <!-- Desktop-only image section -->
     <div class="!hidden md:!block">
       <div class="!flex !mx-8 !items-center !justify-center md:!w-1/2 !gap-2">
+        <!-- Container for multiple overlapping images -->
         <div class="!h-[30rem] !w-[22rem] !relative">
+          <!-- Main image -->
           <img
             src="{{ section.settings.image1 |image_url: width: 352 }}"
             alt="Image 1"
             class="!h-full !w-full !object-cover !z-10">
-
+          <!-- Overlapping images with absolute positioning -->
           <div class="!h-[13rem] !w-[18rem] !absolute !-bottom-36 !-left-28 !flex !-z-10 !items-center !justify-between">
             <img
               src="{{ section.settings.image2 |image_url: width: 288 }}"
@@ -87,6 +99,7 @@
               alt="Image 3"
               class="!h-full !w-full !object-cover">
           </div>
+          <!-- Gradient overlays for visual effect -->
           <div class="!h-[18rem] !w-[13rem] !absolute !-bottom-16 !-right-24 !-z-10 !bg-gradient-to-b !to-orange-50 !from-white">
             <span></span>
           </div>
@@ -95,16 +108,11 @@
           </div>
         </div>
       </div>
-
     </div>
-
-
-
-
   </div>
-
-
 </div>
+
+<!-- Schema for the FAQ section settings -->
 {% schema %}
   {
     "name": "FAQ Section",
@@ -129,57 +137,68 @@
         "id": "answer1",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat harum ducimus, eos exercitationem, quis cum aspernatur libero ad nihil maiores sequi, dolore ullam asperiores. Enim nihil iure totam dolorem!",
         "label": "Answer 1"
-      }, {
+      },
+      {
         "type": "text",
         "id": "answer2",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat harum ducimus, eos exercitationem, quis cum aspernatur libero ad nihil maiores sequi, dolore ullam asperiores. Enim nihil iure totam dolorem!",
         "label": "Answer 2"
-      }, {
+      },
+      {
         "type": "text",
         "id": "answer3",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat harum ducimus, eos exercitationem, quis cum aspernatur libero ad nihil maiores sequi, dolore ullam asperiores. Enim nihil iure totam dolorem!",
         "label": "Answer 3"
-      }, {
+      },
+      {
         "type": "text",
         "id": "answer4",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat harum ducimus, eos exercitationem, quis cum aspernatur libero ad nihil maiores sequi, dolore ullam asperiores. Enim nihil iure totam dolorem!",
         "label": "Answer 4"
-      }, {
+      },
+      {
         "type": "text",
         "id": "answer5",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat harum ducimus, eos exercitationem, quis cum aspernatur libero ad nihil maiores sequi, dolore ullam asperiores. Enim nihil iure totam dolorem!",
         "label": "Answer 5"
-      }, {
+      },
+      {
         "type": "text",
         "id": "answer6",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias fugiat harum ducimus, eos exercitationem, quis cum aspernatur libero ad nihil maiores sequi, dolore ullam asperiores. Enim nihil iure totam dolorem!",
         "label": "Answer 6"
-      }, {
+      },
+      {
         "type": "text",
         "id": "question1",
         "default": "Lorem ipsum dolor sit amet consectetur",
         "label": "Question 1"
-      }, {
+      },
+      {
         "type": "text",
         "id": "question2",
         "default": "Lorem ipsum dolor sit amet consectetur",
         "label": "Question 2"
-      }, {
+      },
+      {
         "type": "text",
         "id": "question3",
         "default": "Lorem ipsum dolor sit amet consectetur",
         "label": "Question 3"
-      }, {
+      },
+      {
         "type": "text",
         "id": "question4",
         "default": "Lorem ipsum dolor sit amet consectetur",
         "label": "Question 4"
-      }, {
+      },
+      {
         "type": "text",
         "id": "question5",
         "default": "Lorem ipsum dolor sit amet consectetur",
         "label": "Question 5"
-      }, {
+      },
+      {
         "type": "text",
         "id": "question6",
         "default": "Lorem ipsum dolor sit amet consectetur",

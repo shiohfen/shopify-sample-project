@@ -1,10 +1,18 @@
+<!-- Include Swiper library from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Main container for the section -->
 <div class="!mx-10 md:!mx-44 !flex !justify-center !flex-col">
+
+  <!-- Section heading -->
   <h1 class="!py-20 !text-center md:!text-5xl !text-4xl !font-bold">Comfort made easy</h1>
 
+  <!-- Swiper container for the carousel -->
   <div class="w-full relative">
     <div class="swiper multiple-slide-carousel1 swiper-container !relative">
+      <!-- Wrapper for Swiper slides -->
       <div class="swiper-wrapper !mb-16">
+        <!-- Loop through items (1 to 3) to create slides -->
         {% for i in (1..3) %}
 
           {% liquid
@@ -12,16 +20,18 @@
             assign subtitle_var = "subtitle" | append: i
             assign icon_var = "icon" | append: i
           %}
+          <!-- Swiper slide -->
           <div class="swiper-slide">
             <div class="!rounded-2xl !h-96 !flex !justify-center !items-center">
 
+              <!-- Conditional styling for the second slide -->
               {% if i == 2 %}
                 <div class="!flex !h-full !w-full !flex-col !justify-center !gap-4 !bg-orange-50 !rounded-lg">
                   <div class="!flex !justify-center">
                     <div class="!h-20 !w-20">
                       <img
                         class="!h-full !w-full !object-cover"
-                        src="{{ section.settings[icon_var] }}"
+                        src="{{ section.settings[icon_var] |image_url: width: 80 }}"
                         alt="Icon {{ i }}" />
                     </div>
                   </div>
@@ -31,13 +41,14 @@
                   </div>
                 </div>
               {% else %}
+                <!-- Default styling for other slides -->
                 <div class="!flex !h-full !w-full !flex-col !justify-center !gap-4 !bg-slate-200 !rounded-lg">
                   <div class="!flex !justify-center">
                     <div class="!h-20 !w-20">
                       <img
                         class="!h-full !w-full !object-cover"
-                        src="{{ section.settings[icon_var] }}"
-                        alt="" />
+                        src="{{ section.settings[icon_var] | image_url: width: 80 }}"
+                        alt="Icon {{ i }}" />
                     </div>
                   </div>
                   <div class="!px-20">
@@ -52,7 +63,9 @@
         {% endfor %}
       </div>
 
+      <!-- Navigation buttons for the carousel (visible on small screens) -->
       <div class="!flex !items-center !gap-8 lg:!justify-start !justify-center md:!hidden">
+        <!-- Previous slide button -->
         <button
           id="slider-button-left"
           class="swiper-button-prev group !p-2 !flex !justify-center !items-center !top-1/2 !-translate-y-1/2 !left-5 "
@@ -72,6 +85,7 @@
               stroke-linejoin="round" />
           </svg>
         </button>
+        <!-- Next slide button -->
         <button
           id="slider-button-right"
           class="swiper-button-next group !p-2 !flex !justify-center !items-center !top-1/2 !-translate-y-1/2 !right-5"
@@ -97,17 +111,20 @@
 
   </div>
 
-    <div class="!flex !justify-center">
-      <div class="!w-full md:!w-1/3">
-        <button class="!px-10 !py-7 md:!p-5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
-        <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
-      </div>
+  <!-- Call to action button and review section -->
+  <div class="!flex !justify-center">
+    <div class="!w-full md:!w-1/3">
+      <!-- Action button -->
+      <button class="!px-10 !py-7 md:!p-5 !bg-blue-950 !text-white md:!text-2xl !text-4xl !rounded !w-full">{{ section.settings.btn-text }}</button>
+      <!-- Review text -->
+      <p class="!text-xl !my-4 !text-center">⭐⭐⭐⭐⭐ Over 500+ 5 Star Reviews Online</p>
     </div>
+  </div>
 
 </div>
 
-
 {% stylesheet %}
+  /* Styling for the Swiper carousel wrapper */
   .swiper-carousel-wrapper {
     width: 100%;
     height: max-content !important;
@@ -184,37 +201,38 @@
 {% endschema %}
 
 {% javascript %}
+  // Initialize Swiper carousel
   var swiper3 = new Swiper(".multiple-slide-carousel1", {
-    loop: true,
-    slidesPerView: 3,
-    spaceBetween: 20,
+    loop: true, // Enable infinite loop mode
+    slidesPerView: 3, // Number of slides visible at a time
+    spaceBetween: 20, // Space between slides
     navigation: {
-      nextEl: ".multiple-slide-carousel1 .swiper-button-next",
-      prevEl: ".multiple-slide-carousel1 .swiper-button-prev"
+      nextEl: ".multiple-slide-carousel1 .swiper-button-next", // Next button selector
+      prevEl: ".multiple-slide-carousel1 .swiper-button-prev"  // Previous button selector
     },
     breakpoints: {
       1536: {
-        slidesPerView: 3,
+        slidesPerView: 3, // 3 slides per view on large screens
         spaceBetween: 30
       },
       1280: {
-        slidesPerView: 3,
+        slidesPerView: 3, // 3 slides per view on medium screens
         spaceBetween: 30
       },
       1024: {
-        slidesPerView: 2,
+        slidesPerView: 2, // 2 slides per view on tablets
         spaceBetween: 30
       },
       768: {
-        slidesPerView: 2,
+        slidesPerView: 2, // 2 slides per view on small tablets
         spaceBetween: 30
       },
       640: {
-        slidesPerView: 1,
+        slidesPerView: 1, // 1 slide per view on mobile screens
         spaceBetween: 0
       },
       0: {
-        slidesPerView: 1,
+        slidesPerView: 1, // 1 slide per view on very small screens
         spaceBetween: 0
       }
     }

@@ -1,24 +1,32 @@
+<!-- Main container with padding and background color -->
 <div class="!mx-10 md:!mx-44 !bg-slate-100 !py-24">
 
+  <!-- Section for displaying a headline -->
   <div>
     <h1 class="!text-center md:!text-left !font-bold !mb-28 md:!text-5xl !text-4xl !leading-loose !tracking-wider !block md:!hidden">{{ section.settings.headline }}</h1>
   </div>
+
+  <!-- Flex container for layout -->
   <div class="!flex !flex-col md:!flex-row gap-5 md:!justify-between ">
 
+    <!-- Container for the main image and overlay images -->
     <div class="!flex !mx-8 !items-center !justify-center md:!w-1/2 !gap-2">
-
       <div class="!h-[56rem] !w-[40rem] !relative">
+        <!-- Main image -->
         <img
-          src="{{ section.settings.image1 |image_url: width: 640 }}"
+          src="{{ section.settings.image1 | image_url: width: 640 }}"
           alt="Image 1"
           class="!h-full !w-full !object-cover">
 
+        <!-- Overlay image on the bottom right -->
         <div class="!h-[12rem] !w-[10rem] !absolute !-bottom-20 !border-4 !border-white !-right-20 !flex !items-center !justify-between">
           <img
-            src="{{ section.settings.image2 |image_url: width: 160 }}"
+            src="{{ section.settings.image2 | image_url: width: 160 }}"
             alt="Image 2"
             class="!h-full !w-full !object-cover">
         </div>
+
+        <!-- Overlay image on the top left -->
         <div class="!h-[12rem] !w-[10rem] !absolute !-left-20 !border-4 !border-white !-top-20 !flex !items-center !justify-between">
           <img
             src="{{ section.settings.image3 | image_url: width: 160 }}"
@@ -26,13 +34,16 @@
             class="!h-full !w-full !object-cover">
         </div>
       </div>
-
     </div>
 
+    <!-- Container for text content and button -->
     <div class="!mb-20 md:!w-1/2 !mt-28 md:!mt-0">
       <div class="!my-8 !mx-4">
         <div class="!text-gray-400">
+          <!-- Headline displayed only on medium screens and above -->
           <h1 class="!hidden md:!block !text-center md:!text-left !font-bold !mb-8 md:!text-5xl !text-4xl !leading-loose !tracking-wider">{{ section.settings.headline }}</h1>
+
+          <!-- Loop through 5 paragraphs and display them -->
           {% for i in (1..5) %}
             {% assign par_var = "paragraph" | append: i %}
             <p class="!text-2xl !mb-8">{{ section.settings[par_var] }}</p>
@@ -40,12 +51,13 @@
         </div>
       </div>
 
+      <!-- Button displayed only on medium screens and above -->
       <button class="!hidden md:!block !px-10 !py-6 md:!p-5 md:!w-3/5 !bg-blue-800 !text-white md:!text-2xl !text-4xl !rounded-lg !w-full">{{ section.settings.btn-text }}</button>
     </div>
   </div>
-
 </div>
 
+<!-- Schema for section settings -->
 {% schema %}
   {
     "name": "Build Connection",
@@ -73,35 +85,40 @@
         "id": "paragraph3",
         "default": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto fugiat cum quia, veniam labore culpa sint tempora qui omnis, mollitia sed asperiores dignissimos maxime libero eaque, et ab voluptate perspiciatis!",
         "label": "Paragraph 3"
-      }, {
+      },
+      {
         "type": "text",
         "id": "paragraph4",
         "default": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem exercitationem repellendus repudiandae aspernatur assumenda. Repudiandae minus molestias necessitatibus voluptatum mollitia eos quam laborum iste sapiente reprehenderit. Similique itaque suscipit exercitationem.",
         "label": "Paragraph 4"
-      }, {
+      },
+      {
         "type": "text",
         "id": "paragraph5",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
         "label": "Paragraph 5"
-      }, {
+      },
+      {
         "type": "text",
         "id": "btn-text",
         "default": "Customize Your Outfit",
         "label": "Button Text"
-      }, {
+      },
+      {
         "type": "image_picker",
         "id": "image1",
         "label": "Image 1"
-      }, {
+      },
+      {
         "type": "image_picker",
         "id": "image2",
         "label": "Image 2"
-      }, {
+      },
+      {
         "type": "image_picker",
         "id": "image3",
         "label": "Image 3"
       }
-
     ],
     "presets": [
       {

@@ -1,52 +1,100 @@
+<!-- Container for the Info Banner Section with a background color and padding -->
 <div class="!bg-slate-100 !pt-12">
-  <h1 class="!text-center !font-bold md:!mb-12 md:!text-5xl !text-4xl !leading-loose !tracking-wider">Our Total green impact</h1>
-  <div class="!flex !flex-col md:!flex-row !justify-center !divide-y ">
-    <div class="!flex !flex-col !items-center !p-16">
-      <div class="!w-16 !h-16 !mb-8">
-        <img
-          class="!w-full !h-full !object-cover"
-          src="https://picsum.photos/600/600?random1"
-          alt="">
+  
+  <!-- Main headline for the section, centered and with responsive font sizes -->
+  <h1 class="!text-center !font-bold md:!mb-12 md:!text-5xl !text-4xl !leading-loose !tracking-wider">{{ section.settings.headline }}</h1>
+  
+  <!-- Flex container to align items in a column on small screens and row on larger screens -->
+  <div class="!flex !flex-col md:!flex-row !justify-center !divide-y">
+    
+    <!-- Loop through three items to dynamically generate content -->
+    {% for i in (1..3) %}
+      {% liquid
+        assign img_var = "image" | append: i
+        assign title_var = "title" | append: i
+        assign subtitle_var = "subtitle" | append: i
+      %}
+      <!-- Individual content block with centered alignment and padding -->
+      <div class="!flex !flex-col !items-center !p-16">
+        <!-- Image container with fixed size -->
+        <div class="!w-16 !h-16 !mb-8">
+          <img
+            class="!w-full !h-full !object-cover"
+            src="{{ section.settings[img_var] | image_url: width: 64 }}"
+            alt="">
+        </div>
+        <!-- Title text for the content block -->
+        <h1 class="!text-3xl !font-bold !mb-2">{{ section.settings[title_var] }}</h1>
+        <!-- Subtitle text for the content block -->
+        <p class="!text-2xl">{{ section.settings[subtitle_var] }}</p>
       </div>
-      <h1 class="!text-3xl !font-bold !mb-2">3,927 kg</h1>
-      <p class="!text-2xl">of CO2 saved</p>
-    </div>
-
-    <div class="!flex !flex-col !items-center !p-16">
-      <div class="!w-16 !h-16 !mb-8">
-        <img
-          class="!w-full !h-full !object-cover"
-          src="https://picsum.photos/600/600?random1"
-          alt="">
-      </div>
-      <h1 class="!text-3xl !font-bold !mb-2">3,927 kg</h1>
-      <p class="!text-2xl">of CO2 saved</p>
-    </div>
-
-    <div class="!flex !flex-col !items-center !p-16">
-      <div class="!w-16 !h-16 !mb-8">
-        <img
-          class="!w-full !h-full !object-cover"
-          src="https://picsum.photos/600/600?random1"
-          alt="">
-      </div>
-      <h1 class="!text-3xl !font-bold !mb-2">3,927 kg</h1>
-      <p class="!text-2xl">of CO2 saved</p>
-    </div>
+    {% endfor %}
+  
   </div>
 </div>
 
-
+<!-- Schema defining settings for the Info Banner Section -->
 {% schema %}
   {
     "name": "Info banner Section",
     "class": "section",
     "settings": [
       {
-        "type": "checkbox",
-        "id": "show_line_separator",
-        "default": true,
-        "label": "t:sections.header.settings.show_line_separator.label"
+        "type": "text",
+        "id": "headline",
+        "default": "Our Total green impact",
+        "label": "headline"
+      },
+      {
+        "type": "text",
+        "id": "title1",
+        "default": "3,927 kg",
+        "label": "Title 1"
+      },
+      {
+        "type": "text",
+        "id": "title2",
+        "default": "2,546,164 days",
+        "label": "Title 2"
+      },
+      {
+        "type": "text",
+        "id": "title3",
+        "default": "7,321 kWh",
+        "label": "Title 3"
+      },
+      {
+        "type": "text",
+        "id": "subtitle1",
+        "default": "of CO2 saved",
+        "label": "Subtitle 1"
+      },
+      {
+        "type": "text",
+        "id": "subtitle2",
+        "default": "of drinking water saved",
+        "label": "Subtitle 2"
+      },
+      {
+        "type": "text",
+        "id": "subtitle3",
+        "default": "of energy saved",
+        "label": "Subtitle 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Image 3"
       }
     ],
     "presets": [
